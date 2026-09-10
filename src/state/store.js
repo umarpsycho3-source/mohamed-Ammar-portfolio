@@ -1,10 +1,12 @@
 import { DEFAULT_CONFIG } from '../config.js';
 import { INITIAL_PROJECTS, INITIAL_LEADS } from '../utils/mockData.js';
+import { DatabaseService } from '../services/dbService.js';
 
 class StateStore {
   constructor() {
     this.listeners = new Set();
     this.loadState();
+    this.syncFromCloud();
   }
 
   loadState() {
@@ -12,10 +14,13 @@ class StateStore {
     const savedConfig = localStorage.getItem('gdp_config');
     this.config = savedConfig ? JSON.parse(savedConfig) : { ...DEFAULT_CONFIG };
 
-    // Force Ammar name and new profile image
-    this.config.designerName = "Ammar";
+    // Force Ammar name and profile image
+    this.config.designerName = "Mohamed Shafi Ammar";
     if (!this.config.avatarUrl || this.config.avatarUrl.includes('unsplash')) {
       this.config.avatarUrl = "/ammar-profile.jpg";
+    }
+    if (!this.config.cvUrl) {
+      this.config.cvUrl = "/Mohamed_Shafi_Ammar_CV.pdf";
     }
 
     // Load projects
@@ -39,6 +44,32 @@ class StateStore {
     // Quote modal state
     this.quoteModalOpen = false;
     this.prefilledQuoteData = null;
+  }
+
+  async syncFromCloud() {
+    try {
+      const cloudProjects = await DatabaseService.fetchProjects();
+      if (cloudProjects && cloudProjects.length > 0) {
+        this.projects = cloudProjects;
+        this.saveProjects();
+      }
+
+      const cloudLeads = await DatabaseService.fetchLeads();
+      if (cloudLeads && cloudLeads.length > 0) {
+        this.leads = cloudLeads;
+        localStorage.setItem('gdp_leads', JSON.stringify(this.leads));
+      }
+
+      const cloudConfig = await DatabaseService.fetchConfig();
+      if (cloudConfig) {
+        this.config = { ...this.config, ...cloudConfig };
+        localStorage.setItem('gdp_config', JSON.stringify(this.config));
+      }
+
+      this.notify();
+    } catch (err) {
+      console.warn("Cloud sync notice:", err);
+    }
   }
 
   subscribe(listener) {
@@ -78,6 +109,7 @@ class StateStore {
   updateConfig(newConfigData) {
     this.config = { ...this.config, ...newConfigData };
     localStorage.setItem('gdp_config', JSON.stringify(this.config));
+    DatabaseService.saveConfig(this.config);
     this.notify();
   }
 
@@ -100,6 +132,7 @@ class StateStore {
 
     this.projects.unshift(newProj);
     this.saveProjects();
+    DatabaseService.saveProject(newProj);
     this.notify();
     return newProj;
   }
@@ -112,6 +145,7 @@ class StateStore {
       }
       this.projects[index] = { ...this.projects[index], ...updatedFields };
       this.saveProjects();
+      DatabaseService.saveProject(this.projects[index]);
       this.notify();
     }
   }
@@ -119,6 +153,7 @@ class StateStore {
   deleteProject(id) {
     this.projects = this.projects.filter(p => p.id !== id);
     this.saveProjects();
+    DatabaseService.deleteProject(id);
     this.notify();
   }
 
@@ -146,6 +181,7 @@ class StateStore {
 
     this.leads.unshift(newLead);
     localStorage.setItem('gdp_leads', JSON.stringify(this.leads));
+    DatabaseService.saveLead(newLead);
     this.notify();
     return newLead;
   }
@@ -155,6 +191,7 @@ class StateStore {
     if (lead) {
       lead.status = status;
       localStorage.setItem('gdp_leads', JSON.stringify(this.leads));
+      DatabaseService.saveLead(lead);
       this.notify();
     }
   }
@@ -162,6 +199,7 @@ class StateStore {
   deleteLead(id) {
     this.leads = this.leads.filter(l => l.id !== id);
     localStorage.setItem('gdp_leads', JSON.stringify(this.leads));
+    DatabaseService.deleteLead(id);
     this.notify();
   }
 
