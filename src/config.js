@@ -1,12 +1,14 @@
 // Global Graphic Designer Profile & Application Config
 // Note: These values can be updated live by the user inside the Admin Panel!
 
+import ammarProfileImg from './assets/ammar-profile.jpg';
+
 export const DEFAULT_CONFIG = {
   designerName: "Ammar",
   fullName: "Mohamed Shafi Ammar",
   designerTitle: "Graphic Designer & Advertising Specialist",
   bio: "A passionate and creative Graphic Designer with hands-on experience in branding, poster design, advertising layouts, and digital media production.",
-  avatarUrl: "/ammar-profile.jpg",
+  avatarUrl: ammarProfileImg,
   cvUrl: "/Mohamed_Shafi_Ammar_CV.pdf",
   email: "mohamedammar5490@gmail.com",
   phone: "+94 78 686 3549",

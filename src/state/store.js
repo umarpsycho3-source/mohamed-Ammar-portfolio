@@ -14,13 +14,11 @@ class StateStore {
     const savedConfig = localStorage.getItem('gdp_config');
     this.config = savedConfig ? JSON.parse(savedConfig) : { ...DEFAULT_CONFIG };
 
-    // Brand name set to clean Ammar
+    // Brand name & Bundled avatar URL
     this.config.designerName = "Ammar";
     this.config.fullName = "Mohamed Shafi Ammar";
+    this.config.avatarUrl = DEFAULT_CONFIG.avatarUrl;
 
-    if (!this.config.avatarUrl || this.config.avatarUrl.includes('unsplash')) {
-      this.config.avatarUrl = "/ammar-profile.jpg";
-    }
     if (!this.config.cvUrl) {
       this.config.cvUrl = "/Mohamed_Shafi_Ammar_CV.pdf";
     }
@@ -64,7 +62,12 @@ class StateStore {
 
       const cloudConfig = await DatabaseService.fetchConfig();
       if (cloudConfig) {
-        this.config = { ...this.config, ...cloudConfig, designerName: "Ammar" };
+        this.config = { 
+          ...this.config, 
+          ...cloudConfig, 
+          designerName: "Ammar",
+          avatarUrl: DEFAULT_CONFIG.avatarUrl 
+        };
         localStorage.setItem('gdp_config', JSON.stringify(this.config));
       }
 
