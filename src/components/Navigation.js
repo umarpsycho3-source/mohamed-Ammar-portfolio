@@ -1,8 +1,6 @@
 import { store } from '../state/store.js';
 
 export function renderNavigation(currentRoute = '#home') {
-  const { config } = store;
-
   const links = [
     { label: 'Home', route: '#home' },
     { label: 'About', route: '#about' },
@@ -14,8 +12,8 @@ export function renderNavigation(currentRoute = '#home') {
   return `
     <nav class="navbar">
       <a href="#home" class="nav-brand">
-        <img src="${config.avatarUrl}" alt="${config.designerName}" class="brand-avatar" />
-        <span>${config.designerName}</span>
+        <img src="${store.config.avatarUrl}" alt="Ammar" class="brand-avatar" />
+        <span class="brand-name">Ammar</span>
       </a>
 
       <ul class="nav-links">

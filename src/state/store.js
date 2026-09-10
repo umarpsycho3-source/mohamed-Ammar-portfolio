@@ -14,8 +14,10 @@ class StateStore {
     const savedConfig = localStorage.getItem('gdp_config');
     this.config = savedConfig ? JSON.parse(savedConfig) : { ...DEFAULT_CONFIG };
 
-    // Force Ammar name and profile image
-    this.config.designerName = "Mohamed Shafi Ammar";
+    // Brand name set to clean Ammar
+    this.config.designerName = "Ammar";
+    this.config.fullName = "Mohamed Shafi Ammar";
+
     if (!this.config.avatarUrl || this.config.avatarUrl.includes('unsplash')) {
       this.config.avatarUrl = "/ammar-profile.jpg";
     }
@@ -62,7 +64,7 @@ class StateStore {
 
       const cloudConfig = await DatabaseService.fetchConfig();
       if (cloudConfig) {
-        this.config = { ...this.config, ...cloudConfig };
+        this.config = { ...this.config, ...cloudConfig, designerName: "Ammar" };
         localStorage.setItem('gdp_config', JSON.stringify(this.config));
       }
 

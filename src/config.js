@@ -2,7 +2,8 @@
 // Note: These values can be updated live by the user inside the Admin Panel!
 
 export const DEFAULT_CONFIG = {
-  designerName: "Mohamed Shafi Ammar",
+  designerName: "Ammar",
+  fullName: "Mohamed Shafi Ammar",
   designerTitle: "Graphic Designer & Advertising Specialist",
   bio: "A passionate and creative Graphic Designer with hands-on experience in branding, poster design, advertising layouts, and digital media production.",
   avatarUrl: "/ammar-profile.jpg",
