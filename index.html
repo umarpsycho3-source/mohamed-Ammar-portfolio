@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ammar | Lead Graphic Designer & 3D Visual Artist</title>
+  <meta name="description" content="Portfolio of Ammar - Lead Graphic Designer specializing in futuristic brand identity, 3D visual artwork, UI/UX aesthetics, and luxury packaging design." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/styles/variables.css" />
+  <link rel="stylesheet" href="/src/styles/style.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/admin.css" />
+
+  <style>
+    .page-fade-in {
+      animation: fadeInPage 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background 3D Canvas & Ambient Glows -->
+  <div id="canvas-3d-bg"></div>
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Header & Header Navigation Bar -->
+  <header id="nav-container"></header>
+
+  <!-- Router Target Container for Dedicated Pages -->
+  <main id="app-main-content" style="min-height: 80vh; padding-bottom: 60px;"></main>
+
+  <!-- Floating Social Action Widgets -->
+  <div id="social-floating-container"></div>
+
+  <!-- Lightbox Modal Container -->
+  <div id="project-modal-container"></div>
+
+  <!-- Footer -->
+  <footer style="padding: 40px 0; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+    <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+      <div>
+        © <span id="footer-year">2026</span> <strong id="footer-designer-name">Ammar</strong>. All Rights Reserved. 
+        <span style="opacity: 0.3; margin: 0 8px;">|</span>
+        <a href="#admin" id="footer-admin-link" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;" title="Discreet Admin Portal (or press Ctrl+Shift+A)">
+          <i class="fa-solid fa-lock" style="font-size: 0.75rem;"></i> System
+        </a>
+      </div>
+      <div style="display: flex; gap: 20px;">
+        <a href="#home" style="color: var(--text-muted); text-decoration: none;">Home</a>
+        <a href="#about" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="#projects" style="color: var(--text-muted); text-decoration: none;">Projects</a>
+        <a href="#services" style="color: var(--text-muted); text-decoration: none;">Services</a>
+        <a href="#contact" style="color: var(--text-muted); text-decoration: none;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Entry Script -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

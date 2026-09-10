@@ -1,0 +1,50 @@
+:root {
+  /* High-End Graphic Designer Typography */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Exclusive Dark Cyber-Luxury Color Palette */
+  --bg-primary: #06070b;
+  --bg-secondary: #0c0e17;
+  --bg-card: rgba(13, 16, 26, 0.75);
+  --bg-card-hover: rgba(22, 27, 44, 0.9);
+  --bg-glass: rgba(12, 15, 25, 0.8);
+  --bg-input: rgba(10, 13, 22, 0.85);
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 240, 255, 0.35);
+
+  /* High-Contrast Typography Colors */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  /* Rich Aesthetic Accents & Gradients */
+  --accent-cyan: #00f0ff;
+  --accent-violet: #8a2bee;
+  --accent-coral: #ff4365;
+  --accent-gold: #f5d061;
+  --accent-green: #10b981;
+
+  --grad-primary: linear-gradient(135deg, #00f0ff 0%, #7000ff 50%, #ff4365 100%);
+  --grad-text: linear-gradient(135deg, #ffffff 0%, #00f0ff 50%, #a855f7 100%);
+  --grad-warm: linear-gradient(135deg, #ff4365 0%, #f5d061 100%);
+  --grad-glow: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, rgba(138, 43, 238, 0.1) 50%, transparent 80%);
+  --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+
+  /* Border Radius & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 30px rgba(0, 240, 255, 0.25);
+  --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
