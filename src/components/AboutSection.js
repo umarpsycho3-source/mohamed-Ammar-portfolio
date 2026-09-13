@@ -79,7 +79,7 @@ export function renderAboutSection() {
             <h2>Work Experience & Education Timeline</h2>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+          <div class="timeline-grid">
             <!-- Work Experience -->
             <div class="glass-card" style="padding: 36px;">
               <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px;">

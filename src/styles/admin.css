@@ -169,3 +169,36 @@
   position: relative;
   z-index: 100;
 }
+
+@media (max-width: 900px) {
+  .admin-overlay {
+    margin-top: calc(80px + var(--sat));
+  }
+  .admin-body {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .admin-sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 12px;
+  }
+  .admin-nav-item {
+    white-space: nowrap;
+    padding: 10px 16px;
+  }
+  .admin-content {
+    padding: 20px 16px;
+  }
+  .admin-header {
+    height: auto;
+    padding: 16px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .login-card {
+    padding: 28px 18px;
+  }
+}

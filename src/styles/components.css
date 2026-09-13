@@ -615,14 +615,110 @@
   to { transform: translateX(0); opacity: 1; }
 }
 
+/* Advanced Mobile Responsiveness Breakpoints */
+@media (max-width: 900px) {
+  .hero-3d-card {
+    height: 360px;
+  }
+  .about-img {
+    height: 420px;
+  }
+  .estimator-card {
+    padding: 30px 24px;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-grid, .about-grid, .contact-grid {
     grid-template-columns: 1fr;
   }
-  .hero-stats {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-3d-card {
+    height: 300px;
+  }
+  .hero-3d-badge {
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+    padding: 10px 14px;
+  }
+  .about-img {
+    height: 340px;
+  }
+  .about-floating-experience {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 18px;
+  }
+  .about-floating-experience h4 {
+    font-size: 1.8rem;
   }
   .project-grid {
     grid-template-columns: 1fr;
+  }
+  .project-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(7, 8, 12, 0.95) 0%, rgba(7, 8, 12, 0.4) 60%, transparent 100%);
+  }
+  .estimator-card {
+    padding: 24px 16px;
+  }
+  .estimator-price-display {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    text-align: center;
+  }
+  .estimator-price-display #estimator-submit-btn {
+    width: 100%;
+  }
+  .contact-info-card,
+  .contact-grid .glass-card {
+    padding: 24px 18px;
+  }
+  .modal-overlay {
+    padding: 12px;
+  }
+  .modal-content {
+    padding: 24px 18px;
+    max-height: 92dvh;
+    border-radius: var(--radius-md);
+  }
+  .modal-close-btn {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .stat-item h3 {
+    font-size: 1.8rem;
+  }
+  .estimator-options {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .social-links-row {
+    flex-direction: column;
+    width: 100%;
+  }
+  .social-btn {
+    justify-content: center;
+    width: 100%;
+  }
+  .toast-container {
+    top: calc(16px + var(--sat));
+    right: 16px;
+    left: 16px;
+  }
+  .toast {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 12px 16px;
   }
 }

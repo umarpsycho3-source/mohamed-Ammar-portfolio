@@ -81,7 +81,7 @@ export function renderContactSection() {
             <h3 style="font-size: 1.8rem; margin-bottom: 24px;">Send Project Inquiry</h3>
 
             <form id="contact-lead-form">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label class="form-label">Your Name *</label>
                   <input type="text" id="contact-name" class="form-input" placeholder="e.g. Sarah Jenkins" required />
@@ -92,7 +92,7 @@ export function renderContactSection() {
                 </div>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label class="form-label">Phone Number</label>
                   <input type="tel" id="contact-phone" class="form-input" placeholder="+1 (555) 000-0000" />
@@ -109,7 +109,7 @@ export function renderContactSection() {
                 </div>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label class="form-label">Estimated Budget</label>
                   <select id="contact-budget-select" class="form-select">
